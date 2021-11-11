@@ -1,0 +1,6 @@
+development:
+  password: shptka_17efd9ba4f8794f62134f202cb307d1f
+  theme_id: "127862112447"
+  store: diamond-environmental.myshopify.com
+  ignore_files:
+    - config/settings_data.json
