@@ -1,0 +1,34 @@
+/* HEADER */
+
+@media (max-width: 767px) {
+  .top_bar .keychainify-checked {
+    font-size: 10px;
+  }
+}
+
+.site-header__primary__main {
+  bottom: 1.25px;
+  position: relative;
+}
+
+.vertical-menu li.sublink>a {
+  letter-spacing: 0px;
+}
+
+.site-header__primary__main .c-btn.-green {
+  top: 1px;
+}
+
+/* FOOTER */
+
+.site-footer__copyright--content {
+  font-size: 1rem;
+  letter-spacing: .1px;
+}
+
+@media (max-width: 950px) {
+  .footer #contact_form input[type=email],
+  .footer #contact_form input.sign_up[type=submit] {
+    max-height: 35px;
+  }
+}
