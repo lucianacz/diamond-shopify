@@ -3677,7 +3677,7 @@ input.action_button[type="button"],
 button.shopify-payment-button__button.shopify-payment-button__button--unbranded {
   background: {{ settings.btn_color }};
   color: {{ settings.btn_text_color }};
-  border: 1px solid {{ settings.btn_color }};
+/*  border: 1px solid {{ settings.btn_color }};*/
   padding: 0 20px;
   text-align: center;
   cursor: pointer;
@@ -12144,9 +12144,7 @@ html {
 h1, h2, h3, h4, h5, h6, p, span, div, a {
 	font-family: 'Proxima', sans-serif !important;
 } */
-body {
-	-webkit-text-stroke-width: 0.1px;
-}
+
 .c-btn {
 	display: inline-block;
     font: 600 16px 'Proxima' !important;
@@ -12155,9 +12153,9 @@ body {
     transition: width 0.3s ease-out;
 }
 .c-btn.-green {
-    background-color: #01a350;
+    background-color: #44e3bb;
     color: #fff !important;
-    border: solid 4px #01a350;
+    border: solid 4px #44e3bb;
   padding: 0.5rem 0.625rem;
 }
 .c-btn.-green:hover {
@@ -12165,8 +12163,8 @@ body {
     border: solid 4px #018240;
 } 
 .c-btn.-green-outline {
-    border: solid 4px #01a350;
-    color: #01a350 !important;
+    border: solid 4px #44e3bb;
+    color: #44e3bb !important;
    padding: 0.5rem 0.625rem;
   z-index: 2;
 }
@@ -12336,8 +12334,7 @@ div.logo img {
 @media (min-width: 1910px) {
   div.logo img {
   	width: 217px !important;
-    max-width: 217px !important;
-    height: 54.69px;
+    max-width: 217px !important;    
   }
 }
 
@@ -12409,6 +12406,7 @@ div.logo img {
     text-transform: uppercase;
     transition: width 0.3s ease-out;    
     color: #fff;
+    background-color: #44e3bb;
 }
 .u-body-copy {
     font: 400 1.5rem/1.75rem 'Proxima-Regular';
@@ -12790,6 +12788,13 @@ h1.product_name {
 #shopify-section-footer .site-footer__main__links > div:not(:last-child) {
 	padding-right: 1rem;
 }
+.product-wrap {
+	transition: box-shadow .3s;
+}
+.product-wrap:hover {
+	box-shadow: 0 0 16px rgb(210,214,217); 
+}
+
 @media (min-width: 768px){
   .site-brow {
     padding: 0.75rem 55px;
