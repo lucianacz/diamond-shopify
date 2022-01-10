@@ -44,7 +44,7 @@
   {% assign product_count = collections[col].all_products_count %}
   {% assign per_slide = products_per %}
 
-  <div class="container js-product-slider homepage-product-slider full-width--true {% if per_slide == 2 or per_slide == 4 or per_slide == 6 %}even-num-slides{% endif %} featured-collection__products">
+  <div class="container js-product-slider homepage-product-slider {% unless template contains 'category' %}full-width--true{% endunless %} {% if per_slide == 2 or per_slide == 4 or per_slide == 6 %}even-num-slides{% endif %} featured-collection__products">
     {% if section_onboarding == false %}
       {% if product_count > 0 %}
         {% include 'product-slider', per_slide: products_per, featured_collection: col  %}

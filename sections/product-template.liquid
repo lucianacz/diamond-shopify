@@ -8,6 +8,7 @@
 <div class="breadcrumb-container">
     {% if collection.previous_product or collection.next_product or section.settings.product_breadcrumb %}
       <div class="clearfix breadcrumb-collection">
+        {%- comment -%}
         {% if collection.previous_product or collection.next_product %}
           <div class="nav_arrows breadcrumb_text">
             {% if collection.previous_product %}
@@ -20,6 +21,7 @@
             {% endif %}
           </div>
         {% endif %}
+        {%- endcomment -%}
 
         {% if section.settings.product_breadcrumb %}
           {% include 'product__breadcrumb' %}

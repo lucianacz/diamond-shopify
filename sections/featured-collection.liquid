@@ -3,6 +3,10 @@
 - Draggable section
 {% endcomment %}
 
+{% if template contains 'category' %}
+  <div id="{{ section.settings.title }}" style="position: relative; top: -50px"></div>
+{% endif %}
+
 {% include 'include-featured-collection' %}
 
 {% schema %}

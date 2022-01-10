@@ -67,7 +67,9 @@
         {% endif %}
         </a>
       {% include "product-details" %}
-      <p class="available_label">Available to Book Online</p>
+      {% if product.tags contains 'book-online' %}
+        <p class="available_label">Available to Book Online</p>
+      {% endif %}
     </div>
     <a class="product-info__caption {% if settings.thumbnail_hover_enabled %}hidden{% endif %}" href="{{ product.url | within: collection }}">
       {% include "product-collection-info" %}

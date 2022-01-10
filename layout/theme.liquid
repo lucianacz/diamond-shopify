@@ -21,6 +21,8 @@
     <link rel="preconnect dns-prefetch" href="https://cdn.shopify.com" />
     <link rel="preconnect dns-prefetch" href="https://v.shopify.com" />
     <link rel="preconnect dns-prefetch" href="https://cdn.shopifycloud.com" />
+    <link rel="preconnect" href="{{ 'custom.css' | asset_url }}" as="style">
+
 
     {% if settings.enable_shopify_review_comments %}
       <link rel="preconnect dns-prefetch" href="https://productreviews.shopifycdn.com" />
@@ -29,7 +31,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.css">
     <!-- Stylesheets for Turbo "6.0.1" -->
     {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'custom.css' | asset_url | stylesheet_tag }}
+    <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
 
     <script>
       window.lazySizesConfig = window.lazySizesConfig || {};
@@ -127,7 +129,7 @@
     </style>
   </noscript>
 
-  <body class="{% if template == '404' %}error-404{% else %}{{ template | replace: '.', '-' | handle }}{% endif %}"
+  <body class="{% if template == '404' %}error-404{% else %}{{ template | replace: '.', '-' | handle }} {% if template contains 'category' %}category{% endif %}{% endif %}"
         data-money-format="
         {%- if settings.show_multiple_currencies == true and settings.currency_format == 'money_with_currency_format' -%}
           {{ shop.money_with_currency_format | strip_html }}
@@ -237,6 +239,41 @@
     <script>
       {{ settings.custom_scripts }}
     </script>
+
+    {%- comment -%}
+    Scroll top button -- Collection page
+    {%- endcomment -%}
+    {% if template.name == 'collection' %}      
+    <button onclick="topFunction()" id="myBtn" class="GoToTop" title="Go to top">
+      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="66.38" height="36.19"
+        viewBox="0 0 66.38 36.19">
+        <path style="fill: #fff;"
+          d="M63.38,36.19a3,3,0,0,1-2.13-.88L33.19,7.24,5.12,35.31A3,3,0,0,1,.88,31.07L31.07.88a3,3,0,0,1,4.24,0L65.5,31.07a3,3,0,0,1,0,4.24A3,3,0,0,1,63.38,36.19Z" />
+      </svg>
+    </button>
+    <script>
+      mybutton = document.getElementById("myBtn");
+      window.onscroll = function () {
+        scrollFunction()
+      };
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+    </script>
+    {% endif %}
+
+    {%- comment -%}
+    End Scroll top button -- Collection page
+    {%- endcomment -%}
   </body>
 </html>
 {% endcapture %}

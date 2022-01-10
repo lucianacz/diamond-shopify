@@ -1,0 +1,71 @@
+<div class="collection-bar collection-bar--{{ section.id}}" style="background-color: {{ section.settings.bg }};">
+  <div class="container">
+    <p style="color: {{ section.settings.color_title }}">{{ section.settings.title }}</p>
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        <a href="#{{ block.settings.title }}">{{ block.settings.title | | downcase }}</a>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+{% style %}
+  .collection-bar--{{ section.id}} a{
+    color: {{ section.settings.color_link }}
+  }
+  .collection-bar--{{ section.id}} a:hover{
+    color: {{ section.settings.color_link_hover }}
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Collection bar",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "color_title",
+      "label": "Color title",
+      "default": "#696868"
+    },
+    {
+      "type": "color",
+      "id": "color_link",
+      "label": "Color link",
+      "default": "#303437"
+    },
+    {
+      "type": "color",
+      "id": "color_link_hover",
+      "label": "Color link hover",
+      "default": "#01a250"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Should be the same title as the title of the featured collection"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}
+  

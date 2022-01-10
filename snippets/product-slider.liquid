@@ -74,6 +74,10 @@
               </div>
             </a>
             {% include "product-details" %}
+            {% if product.tags contains 'book-online' %}  
+              <p class="available_label">Available to Book Online</p>
+            {% endif %}
+
             {% if settings.quick_shop_style == 'inline' %}
               {% include 'collection-swatch' %}
             {% endif %}
